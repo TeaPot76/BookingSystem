@@ -56,10 +56,10 @@ public class DataLoader implements ApplicationRunner {
         Booking booking3 = new Booking("20052019", ruby, alan);
         bookingRepository.save(booking3);
 
-        Booking booking4 = new Booking("20052019", ruby, dan);
+        Booking booking4 = new Booking("21052019", ruby, dan);
         bookingRepository.save(booking4);
 
-        Booking booking5 = new Booking("20052019", java, alan);
+        Booking booking5 = new Booking("21052019", java, alan);
         bookingRepository.save(booking5);
 
 
