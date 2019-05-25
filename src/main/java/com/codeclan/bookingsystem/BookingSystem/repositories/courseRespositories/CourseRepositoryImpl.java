@@ -30,4 +30,25 @@ public class CourseRepositoryImpl {
         }
         return results;
     }
+
+
+    @Transactional
+    public List<Customer> getAllCustomersFromTownForCourse(Long id, String town){
+        List<Customer> results = null;
+        Session session = entityManager.unwrap(Session.class);
+        try {
+            Criteria cr = session.createCriteria(Customer.class);
+            cr.add(Restrictions.eq("town", id));
+            cr.createAlias("bookings", "bookingAlias");
+            cr.createAlias("bookingAlias.course", "courseAlias");
+            cr.add(Restrictions.eq("bookingAlias.course.id", id));
+
+            results = cr.list();
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        return results;
+    }
+
+
 }

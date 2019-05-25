@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface CourseRepositoryCustom {
     List<Customer> getAllCustomersForCourse(Long id);
+    List<Customer> getAllCustomersFromTownForCourse(Long id, String town);
 }
